@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/login.css">
+{% endblock %}
+
+{% block body %}
+
+{% for message in get_flashed_messages() %}
+    <p><b>Error</b>: {{ message }}</p>
+{% endfor %}
+{% if current_user.is_authenticated() %}
+    <h2>Hi, {{ current_user.nickname }}!</h2>
+    <p><a href="{{ url_for('home.logout_page') }}">Logout</a></p>
+{% else %}
+
+	<div class="oauth-container">
+		<h2>Log in</h2>
+		<a href="{{ url_for('home.oauth_authorise', provider='facebook') }}">
+			<img class="social-btn" src="../static/images/logos/facebook_btn.png" width="250" height="50"/>
+		</a>
+		<br/>
+		<a href="{{ url_for('home.oauth_authorise', provider='twitter') }}">
+			<img class="social-btn" src="../static/images/logos/twitter_btn.png" width="250" height="50"/>
+		</a>
+	</div>
+
+        
+
+{% endif %}
+
+{% endblock %}

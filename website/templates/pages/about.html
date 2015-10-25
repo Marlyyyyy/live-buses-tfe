@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/about.css">
+{% endblock %}
+
+{% block body %}
+    <h1>About the Team</h1>
+    <div class="row">
+        <div class="col-md-2"><img src="../static/images/profiles/sky.png"/></div>
+        <div class="col-md-10">
+            <h2 class="member-name">Sky Welch</h2>
+            <p class="member-desc">Sky was the team leader for this project. They worked primarily on the backend, including integration and the favouriting system.</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-2"><img src="../static/images/profiles/marton.png"/></div>
+        <div class="col-md-10">
+            <h2 class="member-name">Márton Széles</h2>
+            <p class="member-desc">Márton worked on both the backend and the front-end. He worked on the project structure, the database schema, the test suite, the REST API, as well as event and map related Typescript.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"><img src="../static/images/profiles/jamie.png"/></div>
+        <div class="col-md-10">
+            <h2 class="member-name">Jamie MacDonald</h2>
+            <p class="member-desc">Jamie worked on the layout, UX and design of the site. He added transparency in random locations and after 2 solid days of CSS has become firm friends with the Chrome Inspector.</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-2"><img src="../static/images/profiles/joseph.png"/></div>
+        <div class="col-md-10">
+            <h2 class="member-name">Joseph Kennelly</h2>
+            <p class="member-desc">Joseph worked on the front end. He worked on improving UI and front-end features.</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-2"><img src="../static/images/profiles/richboy.png"/></div>
+        <div class="col-md-10">
+            <h2 class="member-name">Richboy Kaycee David</h2>
+            <p class="member-desc">Richboy basically worked on Typescript and some part of the UI. A few places on the map integration and also few Typescript-UI integration improvements.</p>
+        </div>
+    </div>
+	
+   <div class="row">
+        <div class="col-md-2"><img src="../static/images/profiles/worf.png"/></div>
+        <div class="col-md-10">
+            <h2 class="member-name">Lieutenant Commander Worf, son of Mogh</h2>
+            <p class="member-desc">Worf's in depth knowledge of TypeScript, CSS and the engineering behind a Klingon Bird of Prey proved invaluable to our team during the construction of the website.</p>
+        </div>
+    </div>
+
+    <p></p>
+    </br>
+    <script>
+        $('#about_menu').addClass('active');
+    </script>
+{% endblock %}

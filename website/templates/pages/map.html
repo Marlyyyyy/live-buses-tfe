@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{%  block head %}
+    <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript" src="/static/js/App.js"></script>
+    <script type="text/javascript" src="/static/js/Runtime.js"></script>
+    <link rel="stylesheet" href="/static/css/mapstyle.css">
+{% endblock %}
+
+{% block body %}
+    <div class="col-sm-8" id="map-canvas"></div>
+	
+    <div class="col-sm-4" id="service-container" align="center">
+
+        <div class="counter">
+	    	<div id="countdown" style="display:none"></div>
+        </div>
+
+        <!-- if logged in AND favourites exist -->
+        {% if g.user.is_authenticated() %}
+            {% if not no_favourite %}
+            	{% if favourite_names|length != 0 %}
+                	<!-- show favourites -->
+                	<p id="service-title">Favourites</p>
+				
+	                {% for service_name in favourite_names %}
+	                    <div class="service-box" data-service="{{ service_name }}">
+	                            {{ service_name }}
+	                    </div>
+	                {% endfor %}
+	            {% endif %}
+            {% endif %}
+
+            <p id="service-title">Edit Favourites:</p>
+            
+            <div id="favAdd-box" class="favourite-box" title="Add to Favourite">+</div>
+
+            <div id="favRmv-box" class="favourite-box" title="Remove from Favourite">-</div>
+            <!-- <p>For Current Selection</p>  -->
+
+        {% else %}
+        {% endif %}
+
+        <p id="service-title">Service</p>
+        {% for service_name in service_names %}
+            <div class="service-box" data-service="{{ service_name }}">
+                {{ service_name }}
+            </div>
+        {% endfor %}
+    </div>
+	
+	<div id="error_div" style="display:none"></div>
+
+    <script>
+        MapModule.init("{{ url_for('bus.get_route_and_stops') }}", "{{ url_for('bus.get_vehicles') }}", "{{ url_for('user.add_favourite', service_name='') }}", "{{ url_for('user.remove_favourite', service_name='') }}");
+    	$('#map_menu').addClass('active');
+    </script>
+{% endblock %}

@@ -1,0 +1,77 @@
+#map-canvas {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+#error_div{
+	position: absolute;
+    z-index: 2;
+	width: 90%;
+	left: 0;
+	top: 80px;
+	height: 70px;
+}
+
+#service-title{
+      padding-top:5px;
+      margin-bottom:0;
+      font-weight:bold;
+}
+
+#service-container{
+    position: absolute;
+    width: 15%;
+    top:50px;
+    bottom:0;
+    right:0;
+    background-color:rgba(255, 255, 255, 0.6);
+    overflow-y:scroll;
+    overflow-x: hidden;
+    min-width: 90px;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.service-box{
+    width: 35px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #00B2A0;
+    background-color:white;
+}
+
+.service-box:hover, .active-service{
+    border: 1px solid white;
+    background-color:#00B2A0;
+}
+
+.favourite-box{
+    width: 35px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #00B2A0;
+    background-color:white;
+}
+
+.favourite-box:hover{
+    border: 1px solid white;
+    background-color:#00B2A0;
+}
+
+#countdown{
+	min-height: 37px;
+	margin:5px 0px;
+}

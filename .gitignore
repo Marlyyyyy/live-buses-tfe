@@ -1,0 +1,13 @@
+Thumbs.db
+.idea/*
+website/.idea/*
+*.min.js
+*.js.map
+*.pyc
+*.db
+website/tmp/*
+venv/*
+env/*
+website/config.py
+website/htmlcov/*
+.coverage

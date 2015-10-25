@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Klingon Buses</title>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Our own theme -->
+    <link rel="stylesheet" href="../static/css/style.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <link rel='shortcut icon' href='../static/images/favicon.ico' type='image/x-icon' />
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+
+    <!-- Allow us to put content in the head of pages if we want, like more JavaScript or CSS -->
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <!--The navbar to be displayed on every page -->
+    <div class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <div class="navbar-header">
+				<img class="navbar-brand" src ="../static/images/logo-small.png" style="min-height:50px"/>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				<a href="/" class="navbar-brand">Transport for Klingons</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li id="home_menu"><a href="{{ url_for('home.home_page') }}">Home</a></li>
+                    <li id="map_menu"><a href="{{ url_for('bus.map_page') }}">Live Map</a></li>
+                    <li id="about_menu"><a href="{{ url_for('home.about_page') }}">About</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if g.user.is_authenticated() %}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img src="{{ g.user.email or g.user.nickname | gravatar(size=18) }}" class="profile-image img-rounded"> {{ g.user.nickname }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url_for('home.logout_page') }}">Logout</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li id="login_menu"><a href="{{ url_for('home.login_page') }}">Login</a></li>
+                    {% endif %}
+            </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- The space for the actual page content to go -->
+    <div class="container body-content">
+        {% block body %}
+        {% endblock %}
+
+        <div id="loading-container">
+            <div id="loading-progress-container"></div>
+        </div>
+    </div>
+</body>
+</html>
